@@ -14,6 +14,7 @@
   --main-portfolio-filter-cl: #4d5ae5;
   --main-portfolio-filter-bg-cl: #f4f4fd;
   --accent-portfolio-filter-bg-cl: #404bbf;
+  --overlay-color: #4d5ae5;
   --socials-bg-color: #4d5ae5;
   --customers-color: #8e8f99;
   --footer-accent-color: #31d0aa;
@@ -502,6 +503,34 @@ img {
 
 .portfolio-item .link {
   display: block;
+
+  transition-property: border-color, box-shadow;
+  transition-duration: var(--anim-time);
+  transition-timing-function: var(--anim-timing-func);
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  padding: 40px 32px 32px;
+
+  color: var(--cloud-color);
+  background-color: var(--overlay-color);
+
+  transform: translateY(100%);
+  transition: transform var(--anim-time) var(--anim-timing-func);
+}
+
+.portfolio-item .link:hover .overlay,
+.portfolio-item .link:focus .overlay {
+  transform: translateY(0%);
 }
 
 .portfolio-item .link:hover,
