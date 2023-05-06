@@ -18,6 +18,8 @@
   --socials-bg-color: #4d5ae5;
   --customers-color: #8e8f99;
   --footer-accent-color: #31d0aa;
+
+  --modal-bg-color: #fcfcfc;
   /* Others */
   --indent: 24px;
   --items: 4;
@@ -453,6 +455,63 @@ img {
 .footer .socials-link:hover,
 .footer .socials-link:focus {
   background-color: var(--footer-accent-color);
+}
+
+/**
+  |============================
+  | Backdrop
+  |============================
+*/
+
+.backdrop {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  background-color: rgba(46, 47, 66, 0.4);
+  transition-property: visibility, opacity;
+  transition-duration: 500ms;
+  transition-timing-function: var(--anim-timing-func);
+}
+
+.modal {
+  position: absolute;
+  height: 576px;
+  width: 408px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--modal-bg-color);
+
+  transition: transform 500ms var(--anim-timing-func);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, 50%);
+}
+
+.modal-close-btn {
+  position: absolute;
+  padding: 0;
+  top: 24px;
+  right: 24px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /**
